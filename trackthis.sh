@@ -5,8 +5,7 @@ CREDENTIALS_FILE="$HOME/.nordvpn_auth"
 VPN_DIR="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Home/Personal/Scripts/vpns"
 LOG_FILE="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Home/Personal/Scripts/trackthis.log"
 LAST_USED_FILE="$HOME/.last_vpn_config.txt"
-SPOOF_CMD="/opt/homebrew/bin/spoof"
-HARDWARE_MAC_FILE="/var/lib/mac_spoof_hardware_address"
+
 
 log() {
   echo "[$(date)] $1" | tee -a "$LOG_FILE"
