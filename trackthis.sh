@@ -1,15 +1,69 @@
 #!/bin/zsh
 
+# --- CONFIGURATION ---
 INTERFACE="en0"
 CREDENTIALS_FILE="$HOME/.nordvpn_auth"
 VPN_DIR="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Home/Personal/Scripts/vpns"
 LOG_FILE="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Home/Personal/Scripts/trackthis.log"
 LAST_USED_FILE="$HOME/.last_vpn_config.txt"
-
+SPOOF_CMD="/opt/homebrew/bin/spoof"
+HARDWARE_MAC_FILE="/var/lib/mac_spoof_hardware_address"
 
 log() {
   echo "[$(date)] $1" | tee -a "$LOG_FILE"
 }
+
+get_mac() {
+  ifconfig "$INTERFACE" | grep ether | awk '{print $2}'
+}
+
+store_hardware_mac() {
+  if [ ! -f "$HARDWARE_MAC_FILE" ]; then
+    sudo mkdir -p "$(dirname "$HARDWARE_MAC_FILE")"
+    echo "$(get_mac)" | sudo tee "$HARDWARE_MAC_FILE" >/dev/null
+    sudo chmod 600 "$HARDWARE_MAC_FILE"
+    log "Stored hardware MAC: $(cat "$HARDWARE_MAC_FILE")"
+  fi
+}
+
+disable_wifi() {
+  log "Disabling Wi-Fi on $INTERFACE..."
+  networksetup -setairportpower "$INTERFACE" off
+  log "sleeping for five"
+  sleep 5
+}
+
+enable_wifi() {
+  log "Enabling Wi-Fi on $INTERFACE..."
+  networksetup -setairportpower "$INTERFACE" on
+  log "sleeping for five"
+  sleep 5
+}
+
+spoof_mac() {
+  log "INFO: Mac spoofing started"
+  store_hardware_mac
+  disable_wifi
+  ORIGINAL_MAC=$(get_mac)
+  log "Original MAC: $ORIGINAL_MAC"
+  SPOOF_OUTPUT=$(sudo "$SPOOF_CMD" randomize "$INTERFACE" 2>&1)
+  log "sleeping for fifteen before enabling Wi-Fi" 
+  sleep 15
+  enable_wifi
+  log "sleeping for fifteen"
+  sleep 15 
+  NEW_MAC=$(get_mac) 
+  if [ "$ORIGINAL_MAC" = "$NEW_MAC" ]; then
+    log "❌ ERROR: MAC did not change."
+  else
+    log "✅ MAC spoofed to: $NEW_MAC"
+  fi
+}
+
+spoof_mac
+
+log "sleeping for fifteen"
+sleep 15
 
 ORIGINAL_IP=$(curl -s http://ip-api.com/json | jq -r .query)
 ORIGINAL_LOC=$(curl -s http://ip-api.com/json | jq -r '"\(.city), \(.country)"')
@@ -53,7 +107,7 @@ fi
 
 if [ -z "$SELECTED_OVPN" ] || [ ! -f "$SELECTED_OVPN" ]; then
   log "❌ ERROR: No valid .ovpn config selected."
-  exit 1
+exit 1
 fi
 
 log "INFO: Starting a new OpenVPN session..."

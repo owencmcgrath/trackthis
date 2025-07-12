@@ -1530,3 +1530,117 @@ delete net 128.0.0.0: gateway 10.100.0.1
 [Tue Jul  8 19:53:58 CDT 2025] INFO: IP changed successfully!
 [Tue Jul  8 19:53:58 CDT 2025] INFO: New IP: 45.155.42.214
 [Tue Jul  8 19:53:58 CDT 2025] Welcome to Reykjavik, Iceland
+[Tue Jul  8 19:58:39 CDT 2025] INFO: Original IP: 45.155.42.214
+[Tue Jul  8 19:58:39 CDT 2025] You are leaving Reykjavik, Iceland
+[Tue Jul  8 19:58:39 CDT 2025] INFO: Killing current OpenVPN session...
+[Tue Jul  8 19:58:40 CDT 2025] INFO: OpenVPN killed.
+[Tue Jul  8 19:58:40 CDT 2025] INFO: Selecting new VPN config...
+[Tue Jul  8 19:58:40 CDT 2025] INFO: Starting a new OpenVPN session...
+[Tue Jul  8 19:58:56 CDT 2025] INFO: IP changed successfully!
+[Tue Jul  8 19:58:56 CDT 2025] INFO: New IP: 94.101.114.111
+[Tue Jul  8 19:58:56 CDT 2025] Welcome to Zurich, Switzerland
+[Tue Jul  8 19:59:54 CDT 2025] INFO: Original IP: 94.101.114.111
+[Tue Jul  8 19:59:54 CDT 2025] You are leaving Zurich, Switzerland
+[Tue Jul  8 19:59:54 CDT 2025] INFO: Killing current OpenVPN session...
+[Tue Jul  8 19:59:54 CDT 2025] INFO: OpenVPN killed.
+[Tue Jul  8 19:59:54 CDT 2025] INFO: Selecting new VPN config...
+[Tue Jul  8 19:59:54 CDT 2025] INFO: Starting a new OpenVPN session...
+[Tue Jul  8 20:00:08 CDT 2025] INFO: Mac spoofing started
+[Tue Jul  8 20:00:08 CDT 2025] Disabling Wi-Fi on en0...
+[Tue Jul  8 20:00:11 CDT 2025] Original MAC: 84:2f:57:2c:f9:cd
+[Tue Jul  8 20:00:14 CDT 2025] Enabling Wi-Fi on en0...
+[Tue Jul  8 20:00:32 CDT 2025] ❌ ERROR: MAC did not change.
+[Tue Jul  8 20:00:34 CDT 2025] INFO: Original IP: 45.155.42.253
+[Tue Jul  8 20:00:34 CDT 2025] You are leaving Reykjavik, Iceland
+[Tue Jul  8 20:00:34 CDT 2025] INFO: Killing current OpenVPN session...
+[Tue Jul  8 20:00:34 CDT 2025] INFO: OpenVPN killed.
+[Tue Jul  8 20:00:34 CDT 2025] INFO: Selecting new VPN config...
+[Tue Jul  8 20:00:34 CDT 2025] INFO: Starting a new OpenVPN session...
+[Tue Jul  8 20:00:50 CDT 2025] INFO: IP changed successfully!
+[Tue Jul  8 20:00:50 CDT 2025] INFO: New IP: 185.239.149.63
+[Tue Jul  8 20:00:50 CDT 2025] Welcome to Panama City, Panama
+[Tue Jul  8 20:02:13 CDT 2025] INFO: Mac spoofing started
+[Tue Jul  8 20:02:13 CDT 2025] Disabling Wi-Fi on en0...
+[Tue Jul  8 20:02:16 CDT 2025] Original MAC: 84:2f:57:2c:f9:cd
+[Tue Jul  8 20:02:17 CDT 2025] spoof output: 
+[Tue Jul  8 20:02:19 CDT 2025] Enabling Wi-Fi on en0...
+[Tue Jul  8 20:02:37 CDT 2025] ✅ MAC spoofed to: 00:05:69:13:ce:11
+[Tue Jul  8 20:03:52 CDT 2025] INFO: Mac spoofing started
+[Tue Jul  8 20:03:52 CDT 2025] Disabling Wi-Fi on en0...
+[Tue Jul  8 20:03:55 CDT 2025] Original MAC: 00:05:69:13:ce:11
+[Tue Jul  8 20:03:55 CDT 2025] spoof output: 
+[Tue Jul  8 20:03:57 CDT 2025] Enabling Wi-Fi on en0...
+[Tue Jul  8 20:04:15 CDT 2025] ✅ MAC spoofed to: 00:1c:42:77:21:f8
+[Tue Jul  8 20:05:25 CDT 2025] INFO: Mac spoofing started
+[Tue Jul  8 20:05:25 CDT 2025] Disabling Wi-Fi on en0...
+[Tue Jul  8 20:05:28 CDT 2025] Original MAC: 00:1c:42:77:21:f8
+[Tue Jul  8 20:05:29 CDT 2025] spoof output: 
+[Tue Jul  8 20:05:31 CDT 2025] Enabling Wi-Fi on en0...
+[Tue Jul  8 20:05:49 CDT 2025] ✅ MAC spoofed to: 08:00:27:20:be:52
+[Tue Jul  8 20:06:07 CDT 2025] INFO: Mac spoofing started
+[Tue Jul  8 20:06:07 CDT 2025] Disabling Wi-Fi on en0...
+[Tue Jul  8 20:06:10 CDT 2025] Original MAC: 08:00:27:20:be:52
+[Tue Jul  8 20:06:12 CDT 2025] Enabling Wi-Fi on en0...
+[Tue Jul  8 20:06:30 CDT 2025] ✅ MAC spoofed to: 00:16:3e:75:9f:cc
+[Tue Jul  8 20:06:30 CDT 2025] sleeping for fifteen
+[Tue Jul  8 20:06:45 CDT 2025] INFO: Original IP: 
+[Tue Jul  8 20:06:45 CDT 2025] You are leaving 
+[Tue Jul  8 20:06:45 CDT 2025] INFO: Killing current OpenVPN session...
+[Tue Jul  8 20:06:51 CDT 2025] INFO: OpenVPN killed.
+[Tue Jul  8 20:06:51 CDT 2025] INFO: Selecting new VPN config...
+[Tue Jul  8 20:06:51 CDT 2025] INFO: Starting a new OpenVPN session...
+[Tue Jul  8 20:10:10 CDT 2025] INFO: Mac spoofing started
+[Tue Jul  8 20:10:10 CDT 2025] Disabling Wi-Fi on en0...
+[Tue Jul  8 20:10:10 CDT 2025] sleeping for five
+[Tue Jul  8 20:10:15 CDT 2025] Original MAC: 84:2f:57:2c:f9:cd
+[Tue Jul  8 20:10:16 CDT 2025] sleeping for five
+[Tue Jul  8 20:10:21 CDT 2025] Enabling Wi-Fi on en0...
+[Tue Jul  8 20:10:21 CDT 2025] sleeping for five
+[Tue Jul  8 20:10:26 CDT 2025] sleeping for fifteen
+[Tue Jul  8 20:10:41 CDT 2025] ✅ MAC spoofed to: 00:50:56:1e:44:ef
+[Tue Jul  8 20:10:41 CDT 2025] sleeping for fifteen
+[Tue Jul  8 20:10:56 CDT 2025] INFO: Original IP: 68.110.31.60
+[Tue Jul  8 20:10:56 CDT 2025] You are leaving Omaha, United States
+[Tue Jul  8 20:10:56 CDT 2025] INFO: Killing current OpenVPN session...
+[Tue Jul  8 20:11:19 CDT 2025] INFO: No OpenVPN process found.
+[Tue Jul  8 20:11:19 CDT 2025] INFO: Selecting new VPN config...
+[Tue Jul  8 20:11:19 CDT 2025] INFO: Starting a new OpenVPN session...
+[Tue Jul  8 20:11:37 CDT 2025] INFO: IP changed successfully!
+[Tue Jul  8 20:11:37 CDT 2025] INFO: New IP: 77.243.87.164
+[Tue Jul  8 20:11:37 CDT 2025] Welcome to Madrid, Spain
+[Tue Jul  8 20:13:05 CDT 2025] INFO: Mac spoofing started
+[Tue Jul  8 20:13:05 CDT 2025] Disabling Wi-Fi on en0...
+[Tue Jul  8 20:13:05 CDT 2025] sleeping for five
+[Tue Jul  8 20:13:10 CDT 2025] Original MAC: 00:50:56:1e:44:ef
+[Tue Jul  8 20:13:11 CDT 2025] sleeping for five before enabling Wi-Fi
+[Tue Jul  8 20:13:16 CDT 2025] Enabling Wi-Fi on en0...
+[Tue Jul  8 20:13:16 CDT 2025] sleeping for five
+[Tue Jul  8 20:13:21 CDT 2025] sleeping for fifteen
+[Tue Jul  8 20:13:36 CDT 2025] ✅ MAC spoofed to: 00:03:ff:64:92:7f
+[Tue Jul  8 20:13:36 CDT 2025] sleeping for fifteen
+[Tue Jul  8 20:14:35 CDT 2025] INFO: Mac spoofing started
+[Tue Jul  8 20:14:35 CDT 2025] Disabling Wi-Fi on en0...
+[Tue Jul  8 20:14:35 CDT 2025] sleeping for five
+[Tue Jul  8 20:14:40 CDT 2025] Original MAC: 00:03:ff:64:92:7f
+[Tue Jul  8 20:14:40 CDT 2025] sleeping for fifteen before enabling Wi-Fi
+[Tue Jul  8 20:14:55 CDT 2025] Enabling Wi-Fi on en0...
+[Tue Jul  8 20:14:55 CDT 2025] sleeping for five
+[Tue Jul  8 20:15:00 CDT 2025] sleeping for fifteen
+[Tue Jul  8 20:15:15 CDT 2025] ✅ MAC spoofed to: 00:50:56:7e:eb:35
+[Tue Jul  8 20:15:15 CDT 2025] sleeping for fifteen
+[Sat Jul 12 10:53:31 CDT 2025] INFO: Mac spoofing started
+[Sat Jul 12 10:53:31 CDT 2025] Disabling Wi-Fi on en0...
+[Sat Jul 12 10:53:31 CDT 2025] sleeping for five
+[Sat Jul 12 10:53:36 CDT 2025] Original MAC: 86:45:8a:81:6c:f5
+[Sat Jul 12 10:53:36 CDT 2025] sleeping for fifteen before enabling Wi-Fi
+[Sat Jul 12 10:53:51 CDT 2025] Enabling Wi-Fi on en0...
+[Sat Jul 12 10:53:52 CDT 2025] sleeping for five
+[Sat Jul 12 10:53:57 CDT 2025] sleeping for fifteen
+[Sat Jul 12 10:54:12 CDT 2025] ✅ MAC spoofed to: 00:03:ff:55:be:fb
+[Sat Jul 12 10:54:12 CDT 2025] sleeping for fifteen
+[Sat Jul 12 10:54:27 CDT 2025] INFO: Original IP: 97.119.211.32
+[Sat Jul 12 10:54:27 CDT 2025] You are leaving Omaha, United States
+[Sat Jul 12 10:54:27 CDT 2025] INFO: Killing current OpenVPN session...
+[Sat Jul 12 10:54:33 CDT 2025] INFO: No OpenVPN process found.
+[Sat Jul 12 10:54:33 CDT 2025] INFO: Selecting new VPN config...
+[Sat Jul 12 10:54:33 CDT 2025] ❌ ERROR: No .ovpn files found in /Users/owenmcgrath/Library/Mobile Documents/com~apple~CloudDocs/Home/Personal/Scripts/vpns
