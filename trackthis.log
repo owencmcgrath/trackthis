@@ -1644,3 +1644,168 @@ delete net 128.0.0.0: gateway 10.100.0.1
 [Sat Jul 12 10:54:33 CDT 2025] INFO: No OpenVPN process found.
 [Sat Jul 12 10:54:33 CDT 2025] INFO: Selecting new VPN config...
 [Sat Jul 12 10:54:33 CDT 2025] ❌ ERROR: No .ovpn files found in /Users/owenmcgrath/Library/Mobile Documents/com~apple~CloudDocs/Home/Personal/Scripts/vpns
+[Sat Jul 12 19:11:35 CDT 2025] INFO: Mac spoofing started
+[Sat Jul 12 19:11:35 CDT 2025] Disabling Wi-Fi on en0...
+[Sat Jul 12 19:11:36 CDT 2025] sleeping for five
+[Sat Jul 12 19:11:41 CDT 2025] Original MAC: 00:03:ff:55:be:fb
+[Sat Jul 12 19:11:41 CDT 2025] sleeping for fifteen before enabling Wi-Fi
+[Sat Jul 12 19:11:56 CDT 2025] Enabling Wi-Fi on en0...
+[Sat Jul 12 19:11:56 CDT 2025] sleeping for five
+[Sat Jul 12 19:12:01 CDT 2025] sleeping for fifteen
+[Sat Jul 12 19:12:16 CDT 2025] ✅ MAC spoofed to: 08:00:27:23:86:42
+[Sat Jul 12 19:12:16 CDT 2025] sleeping for fifteen
+[Sat Jul 12 19:12:31 CDT 2025] INFO: Original IP: 68.110.31.60
+[Sat Jul 12 19:12:32 CDT 2025] You are leaving Omaha, United States
+[Sat Jul 12 19:12:32 CDT 2025] INFO: Killing current OpenVPN session...
+[Sat Jul 12 19:12:51 CDT 2025] INFO: No OpenVPN process found.
+[Sat Jul 12 19:12:51 CDT 2025] INFO: Selecting new VPN config...
+[Sat Jul 12 19:12:51 CDT 2025] INFO: Starting a new OpenVPN session...
+[Sat Jul 12 19:13:08 CDT 2025] INFO: IP changed successfully!
+[Sat Jul 12 19:13:08 CDT 2025] INFO: New IP: 194.5.155.93
+[Sat Jul 12 19:13:08 CDT 2025] Welcome to Stockholm, Sweden
+[Sat Jul 12 19:30:53 CDT 2025] INFO: Mac spoofing started
+[Sat Jul 12 19:30:53 CDT 2025] Disabling Wi-Fi on en0...
+[Sat Jul 12 19:30:53 CDT 2025] sleeping for five
+[Sat Jul 12 19:30:59 CDT 2025] Original MAC: 84:2f:57:2c:f9:cd
+[Sat Jul 12 19:30:59 CDT 2025] sleeping for fifteen before enabling Wi-Fi
+[Sat Jul 12 19:31:14 CDT 2025] Enabling Wi-Fi on en0...
+[Sat Jul 12 19:31:14 CDT 2025] sleeping for five
+[Sat Jul 12 19:31:19 CDT 2025] sleeping for fifteen
+[Sat Jul 12 19:31:34 CDT 2025] ✅ MAC spoofed to: 00:03:ff:4f:bb:3b
+[Sat Jul 12 19:31:34 CDT 2025] sleeping for fifteen
+[Sat Jul 12 19:31:49 CDT 2025] INFO: Original IP: 
+[Sat Jul 12 19:31:49 CDT 2025] You are leaving 
+[Sat Jul 12 19:31:49 CDT 2025] INFO: Killing current OpenVPN session...
+[Sat Jul 12 19:31:49 CDT 2025] INFO: No OpenVPN process found.
+[Sat Jul 12 19:31:49 CDT 2025] INFO: Selecting new VPN config...
+[Sat Jul 12 19:31:49 CDT 2025] INFO: Starting a new OpenVPN session...
+[Sat Jul 12 19:32:04 CDT 2025] ⚠️ WARNING: IP did not change. VPN might have failed.
+[Sat Jul 12 19:32:04 CDT 2025] 🛑 pf firewall disabled.
+[Sat Jul 12 19:37:10 CDT 2025] INFO: Mac spoofing started
+[Sat Jul 12 19:37:10 CDT 2025] Disabling Wi-Fi on en0...
+[Sat Jul 12 19:37:10 CDT 2025] sleeping for five
+[Sat Jul 12 19:37:15 CDT 2025] Original MAC: 00:03:ff:4f:bb:3b
+[Sat Jul 12 19:37:15 CDT 2025] sleeping for fifteen before enabling Wi-Fi
+[Sat Jul 12 19:37:30 CDT 2025] Enabling Wi-Fi on en0...
+[Sat Jul 12 19:37:30 CDT 2025] sleeping for five
+[Sat Jul 12 19:37:35 CDT 2025] sleeping for fifteen
+[Sat Jul 12 19:37:50 CDT 2025] ✅ MAC spoofed to: 00:03:ff:48:61:67
+[Sat Jul 12 19:37:50 CDT 2025] sleeping for fifteen
+[Sat Jul 12 19:39:05 CDT 2025] INFO: Original IP: 
+[Sat Jul 12 19:39:05 CDT 2025] You are leaving 
+[Sat Jul 12 19:39:05 CDT 2025] INFO: Killing current OpenVPN session...
+[Sat Jul 12 19:39:05 CDT 2025] INFO: OpenVPN killed.
+[Sat Jul 12 19:39:05 CDT 2025] INFO: Selecting new VPN config...
+[Sat Jul 12 19:39:05 CDT 2025] INFO: Starting a new OpenVPN session...
+[Sat Jul 12 19:39:22 CDT 2025] ✅ pf firewall enabled — all traffic forced through VPN.
+[Sat Jul 12 19:39:22 CDT 2025] INFO: IP changed successfully!
+[Sat Jul 12 19:39:22 CDT 2025] INFO: New IP: 176.223.172.117
+[Sat Jul 12 19:39:22 CDT 2025] Welcome to Zurich, Switzerland!
+[Sat Jul 12 19:39:22 CDT 2025] 🛑 pf firewall disabled.
+[Sat Jul 12 19:42:22 CDT 2025] INFO: Mac spoofing started
+[Sat Jul 12 19:42:22 CDT 2025] Disabling Wi-Fi on en0...
+[Sat Jul 12 19:42:22 CDT 2025] sleeping for five
+[Sat Jul 12 19:42:27 CDT 2025] Original MAC: 00:03:ff:48:61:67
+[Sat Jul 12 19:42:28 CDT 2025] sleeping for fifteen before enabling Wi-Fi
+[Sat Jul 12 19:42:43 CDT 2025] Enabling Wi-Fi on en0...
+[Sat Jul 12 19:42:43 CDT 2025] sleeping for five
+[Sat Jul 12 19:42:48 CDT 2025] sleeping for fifteen
+[Sat Jul 12 19:43:03 CDT 2025] ✅ MAC spoofed to: 00:50:56:77:ff:c5
+[Sat Jul 12 19:43:03 CDT 2025] sleeping for fifteen
+[Sat Jul 12 19:43:18 CDT 2025] INFO: Original IP: 
+[Sat Jul 12 19:43:18 CDT 2025] You are leaving 
+[Sat Jul 12 19:43:18 CDT 2025] INFO: Killing current OpenVPN session...
+[Sat Jul 12 19:43:18 CDT 2025] INFO: OpenVPN killed.
+[Sat Jul 12 19:43:18 CDT 2025] INFO: Selecting new VPN config...
+[Sat Jul 12 19:43:18 CDT 2025] INFO: Starting a new OpenVPN session...
+[Sat Jul 12 19:43:33 CDT 2025] ⚠️ WARNING: IP did not change. VPN might have failed.
+[Sat Jul 12 19:44:08 CDT 2025] INFO: Mac spoofing started
+[Sat Jul 12 19:44:08 CDT 2025] Disabling Wi-Fi on en0...
+[Sat Jul 12 19:44:08 CDT 2025] sleeping for five
+[Sat Jul 12 19:44:13 CDT 2025] Original MAC: 00:50:56:77:ff:c5
+[Sat Jul 12 19:44:14 CDT 2025] sleeping for fifteen before enabling Wi-Fi
+[Sat Jul 12 19:44:29 CDT 2025] Enabling Wi-Fi on en0...
+[Sat Jul 12 19:44:29 CDT 2025] sleeping for five
+[Sat Jul 12 19:44:34 CDT 2025] sleeping for fifteen
+[Sat Jul 12 19:44:49 CDT 2025] ✅ MAC spoofed to: 00:05:69:21:2f:75
+[Sat Jul 12 19:44:49 CDT 2025] sleeping for fifteen
+[Sat Jul 12 19:45:06 CDT 2025] INFO: Original IP: 176.223.173.57
+[Sat Jul 12 19:45:06 CDT 2025] You are leaving Zurich, Switzerland
+[Sat Jul 12 19:45:06 CDT 2025] INFO: Killing current OpenVPN session...
+[Sat Jul 12 19:45:06 CDT 2025] INFO: OpenVPN killed.
+[Sat Jul 12 19:45:06 CDT 2025] INFO: Selecting new VPN config...
+[Sat Jul 12 19:45:06 CDT 2025] INFO: Starting a new OpenVPN session...
+[Sat Jul 12 19:45:24 CDT 2025] ✅ pf firewall enabled — all traffic forced through VPN.
+[Sat Jul 12 19:45:24 CDT 2025] INFO: IP changed successfully!
+[Sat Jul 12 19:45:24 CDT 2025] INFO: New IP: 176.223.173.88
+[Sat Jul 12 19:45:24 CDT 2025] Welcome to Zurich, Switzerland!
+[Sat Jul 12 19:45:24 CDT 2025] Your pf status is: Status: Enabled for 0 days 00:00:00           Debug: Urgent
+
+State Table                          Total             Rate
+  current entries                        0               
+  searches                            2115               
+  inserts                                0               
+  removals                               0               
+Counters
+  match                               1705               
+  bad-offset                             0               
+  fragment                               0               
+  short                                  0               
+  normalize                              0               
+  memory                                 0               
+  bad-timestamp                          0               
+  congestion                             0               
+  ip-option                              0               
+  proto-cksum                            0               
+  state-mismatch                         0               
+  state-insert                           0               
+  state-limit                            0               
+  src-limit                              0               
+  synproxy                               0               
+  dummynet                               0               
+  invalid-port                           0               
+[Sat Jul 12 20:08:01 CDT 2025] INFO: Mac spoofing started
+[Sat Jul 12 20:08:01 CDT 2025] Disabling Wi-Fi on en0...
+[Sat Jul 12 20:08:01 CDT 2025] sleeping for five
+[Sat Jul 12 20:08:06 CDT 2025] Original MAC: 84:2f:57:2c:f9:cd
+[Sat Jul 12 20:08:07 CDT 2025] sleeping for fifteen before enabling Wi-Fi
+[Sat Jul 12 20:08:22 CDT 2025] Enabling Wi-Fi on en0...
+[Sat Jul 12 20:08:22 CDT 2025] sleeping for five
+[Sat Jul 12 20:08:27 CDT 2025] sleeping for fifteen
+[Sat Jul 12 20:08:42 CDT 2025] ✅ MAC spoofed to: 00:0f:4b:78:2c:10
+[Sat Jul 12 20:08:42 CDT 2025] sleeping for fifteen
+[Sat Jul 12 20:08:57 CDT 2025] INFO: Original IP: 68.110.31.60
+[Sat Jul 12 20:08:57 CDT 2025] You are leaving Omaha, United States
+[Sat Jul 12 20:08:57 CDT 2025] INFO: Killing current OpenVPN session...
+[Sat Jul 12 20:08:57 CDT 2025] INFO: No OpenVPN process found.
+[Sat Jul 12 20:08:57 CDT 2025] INFO: Selecting new VPN config...
+[Sat Jul 12 20:08:57 CDT 2025] INFO: Starting a new OpenVPN session...
+[Sat Jul 12 20:09:14 CDT 2025] ✅ pf firewall enabled — all traffic forced through VPN.
+[Sat Jul 12 20:09:14 CDT 2025] INFO: IP changed successfully!
+[Sat Jul 12 20:09:14 CDT 2025] INFO: New IP: 45.155.42.44
+[Sat Jul 12 20:09:14 CDT 2025] Welcome to Reykjavik, Iceland!
+[Sat Jul 12 20:09:14 CDT 2025] Your pf status is: Status: Enabled for 0 days 00:01:12           Debug: Urgent
+
+State Table                          Total             Rate
+  current entries                        0               
+  searches                            6669           92.6/s
+  inserts                                0            0.0/s
+  removals                               0            0.0/s
+Counters
+  match                               5331           74.0/s
+  bad-offset                             0            0.0/s
+  fragment                               0            0.0/s
+  short                                  0            0.0/s
+  normalize                              0            0.0/s
+  memory                                 0            0.0/s
+  bad-timestamp                          0            0.0/s
+  congestion                             0            0.0/s
+  ip-option                              1            0.0/s
+  proto-cksum                            0            0.0/s
+  state-mismatch                         0            0.0/s
+  state-insert                           0            0.0/s
+  state-limit                            0            0.0/s
+  src-limit                              0            0.0/s
+  synproxy                               0            0.0/s
+  dummynet                               0            0.0/s
+  invalid-port                           0            0.0/s

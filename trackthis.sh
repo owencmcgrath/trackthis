@@ -13,6 +13,17 @@ log() {
   echo "[$(date)] $1" | tee -a "$LOG_FILE"
 }
 
+PF_CONF="/etc/pf.anon.conf"
+
+enable_pf() {
+  echo "block all" | sudo tee "$PF_CONF" > /dev/null
+  echo "pass quick on utun0 all" | sudo tee -a "$PF_CONF" > /dev/null
+  echo "pass quick on lo0 all" | sudo tee -a "$PF_CONF" > /dev/null
+  sudo pfctl -f "$PF_CONF"
+  sudo pfctl -e -f /etc/pf.anon.conf
+  log "✅ pf firewall enabled — all traffic forced through VPN."
+}
+
 get_mac() {
   ifconfig "$INTERFACE" | grep ether | awk '{print $2}'
 }
@@ -120,8 +131,10 @@ NEW_LOC=$(curl -s http://ip-api.com/json | jq -r '"\(.city), \(.country)"')
 if [ "$NEW_IP" = "$ORIGINAL_IP" ]; then
   log "⚠️ WARNING: IP did not change. VPN might have failed."
 else
+  enable_pf
   log "INFO: IP changed successfully!"
   log "INFO: New IP: $NEW_IP"
-  log "Welcome to $NEW_LOC"
+  log "Welcome to $NEW_LOC!"
+  log "Your pf status is: $(sudo pfctl -s info)"
   echo "$SELECTED_OVPN" > "$LAST_USED_FILE"
 fi
