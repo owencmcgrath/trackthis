@@ -3,7 +3,7 @@
 # --- CONFIGURATION ---
 INTERFACE="en0"
 CREDENTIALS_FILE="$HOME/.nordvpn_auth"
-VPN_DIR="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Home/Personal/Scripts/vpns"
+VPN_DIR="$/Users/owenmcgrath/Library/Mobile Documents/com~apple~CloudDocs/Home/Personal/Scripts/vpns"
 LOG_FILE="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Home/Personal/Scripts/trackthis.log"
 LAST_USED_FILE="$HOME/.last_vpn_config.txt"
 SPOOF_CMD="/opt/homebrew/bin/spoof"
@@ -12,16 +12,84 @@ HARDWARE_MAC_FILE="/var/lib/mac_spoof_hardware_address"
 # Error handling
 set -eE  # Exit on error, including in functions
 trap 'cleanup_on_error $? $LINENO' ERR
+trap 'cleanup_on_signal' SIGINT SIGTERM
+
+# Track script state for cleanup
+SCRIPT_STATE="starting"
+WIFI_WAS_DISABLED=false
+VPN_WAS_STARTED=false
+PF_WAS_ENABLED=false
 
 cleanup_on_error() {
   local exit_code=$1
   local line_number=$2
   log "❌ ERROR: Script failed with exit code $exit_code at line $line_number"
-  # Re-enable WiFi if it was disabled
-  if ! networksetup -getairportpower "$INTERFACE" | grep -q "On"; then
-    log "Re-enabling WiFi due to error..."
-    networksetup -setairportpower "$INTERFACE" on
+  cleanup_and_exit $exit_code
+}
+
+cleanup_on_signal() {
+  log "🛑 Script interrupted by user - cleaning up..."
+  cleanup_and_exit 130
+}
+
+cleanup_and_exit() {
+  local exit_code=${1:-0}
+  
+  log "🧹 Starting cleanup process..."
+  
+  # Kill any OpenVPN processes we might have started
+  if [[ "$VPN_WAS_STARTED" == true ]]; then
+    log "Killing OpenVPN processes..."
+    sudo killall openvpn 2>/dev/null && log "OpenVPN killed" || log "No OpenVPN process found"
   fi
+  
+  # Disable pf firewall if we enabled it
+  if [[ "$PF_WAS_ENABLED" == true ]]; then
+    log "Disabling pf firewall..."
+    sudo pfctl -d 2>/dev/null && log "pf firewall disabled" || log "pf firewall was not enabled"
+  fi
+  
+  # Re-enable WiFi if it was disabled
+  if [[ "$WIFI_WAS_DISABLED" == true ]] || ! networksetup -getairportpower "$INTERFACE" | grep -q "On"; then
+    log "Re-enabling WiFi on $INTERFACE..."
+    networksetup -setairportpower "$INTERFACE" on
+    sleep 3
+    log "WiFi re-enabled"
+  fi
+  
+  # Restore original MAC if we have it stored
+  if [[ -f "$HARDWARE_MAC_FILE" ]] && [[ "$SCRIPT_STATE" != "starting" ]]; then
+    ORIGINAL_HW_MAC=$(sudo cat "$HARDWARE_MAC_FILE" 2>/dev/null || echo "")
+    if [[ -n "$ORIGINAL_HW_MAC" ]]; then
+      CURRENT_MAC=$(get_mac)
+      if [[ "$CURRENT_MAC" != "$ORIGINAL_HW_MAC" ]]; then
+        log "Attempting to restore original MAC address: $ORIGINAL_HW_MAC"
+        networksetup -setairportpower "$INTERFACE" off
+        sleep 3
+        # Try to restore original MAC (this might not work on all systems)
+        sudo ifconfig "$INTERFACE" ether "$ORIGINAL_HW_MAC" 2>/dev/null || log "⚠️ Could not restore original MAC automatically"
+        networksetup -setairportpower "$INTERFACE" on
+        sleep 5
+        NEW_MAC=$(get_mac)
+        if [[ "$NEW_MAC" == "$ORIGINAL_HW_MAC" ]]; then
+          log "✅ Original MAC address restored: $ORIGINAL_HW_MAC"
+        else
+          log "⚠️ MAC restoration may have failed. You may need to restart your network interface or reboot."
+          log "   Original MAC was: $ORIGINAL_HW_MAC"
+          log "   Current MAC is: $NEW_MAC"
+        fi
+      fi
+    fi
+  fi
+  
+  if [[ $exit_code -eq 130 ]]; then
+    log "✅ Cleanup completed - script was cancelled by user"
+  elif [[ $exit_code -eq 0 ]]; then
+    log "✅ Cleanup completed - script finished normally"
+  else
+    log "✅ Cleanup completed - script exited with error code $exit_code"
+  fi
+  
   exit $exit_code
 }
 
@@ -79,65 +147,92 @@ enable_pf() {
   echo "pass quick on utun0 all" | sudo tee -a "$PF_CONF" > /dev/null
   echo "pass quick on lo0 all" | sudo tee -a "$PF_CONF" > /dev/null
   sudo pfctl -f "$PF_CONF"
-  sudo pfctl -e -f "$PF_CONF"
+  sudo pfctl -e
+  PF_WAS_ENABLED=true
   log "✅ pf firewall enabled — all traffic forced through VPN."
 }
 
 get_mac() {
-  ifconfig "$INTERFACE" | grep ether | awk '{print $2}'
+  # More robust MAC address detection
+  ifconfig "$INTERFACE" 2>/dev/null | awk '/ether/ {print $2}' || echo ""
 }
 
 store_hardware_mac() {
-  if [ ! -f "$HARDWARE_MAC_FILE" ]; then
-    sudo mkdir -p "$(dirname "$HARDWARE_MAC_FILE")"
-    echo "$(get_mac)" | sudo tee "$HARDWARE_MAC_FILE" >/dev/null
-    sudo chmod 600 "$HARDWARE_MAC_FILE"
-    log "Stored hardware MAC: $(cat "$HARDWARE_MAC_FILE")"
+  if [[ ! -f "$HARDWARE_MAC_FILE" ]]; then
+    local current_mac=$(get_mac)
+    if [[ -n "$current_mac" ]]; then
+      sudo mkdir -p "$(dirname "$HARDWARE_MAC_FILE")"
+      echo "$current_mac" | sudo tee "$HARDWARE_MAC_FILE" >/dev/null
+      sudo chmod 600 "$HARDWARE_MAC_FILE"
+      log "Stored hardware MAC: $current_mac"
+    else
+      log "⚠️ WARNING: Could not detect MAC address to store"
+    fi
   fi
 }
 
 disable_wifi() {
   log "Disabling Wi-Fi on $INTERFACE..."
+  WIFI_WAS_DISABLED=true
   networksetup -setairportpower "$INTERFACE" off
-  log "sleeping for five"
-  sleep 5
+  log "Waiting 30 seconds for WiFi to disable"
+  sleep 30
 }
 
 enable_wifi() {
   log "Enabling Wi-Fi on $INTERFACE..."
   networksetup -setairportpower "$INTERFACE" on
-  log "sleeping for five"
-  sleep 5
+  WIFI_WAS_DISABLED=false
+  log "Waiting 30 seconds for WiFi to enable"
+  sleep 30
 }
 
-spoof_mac() {
-  log "INFO: Mac spoofing started"
+# Native MAC spoofing function that should work better
+spoof_mac_native() {
+  log "INFO: Native Mac spoofing started"
   store_hardware_mac
   disable_wifi
+  
   ORIGINAL_MAC=$(get_mac)
   log "Original MAC: $ORIGINAL_MAC"
   
-  # Capture and log spoof output
-  if SPOOF_OUTPUT=$(sudo "$SPOOF_CMD" randomize "$INTERFACE" 2>&1); then
-    log "Spoof command output: $SPOOF_OUTPUT"
-  else
-    log "❌ ERROR: MAC spoofing command failed: $SPOOF_OUTPUT"
+  if [[ -z "$ORIGINAL_MAC" ]]; then
+    log "❌ ERROR: Could not detect current MAC address"
     enable_wifi
     return 1
   fi
   
-  log "Waiting 15 seconds before enabling Wi-Fi" 
-  sleep 15
-  enable_wifi
-  log "Waiting 15 seconds for interface to stabilize"
-  sleep 15 
+  # Generate a random MAC address
+  NEW_MAC=$(printf '%02x:%02x:%02x:%02x:%02x:%02x\n' \
+    $((RANDOM % 256)) $((RANDOM % 256)) $((RANDOM % 256)) \
+    $((RANDOM % 256)) $((RANDOM % 256)) $((RANDOM % 256)))
   
-  NEW_MAC=$(get_mac) 
-  if [[ "$ORIGINAL_MAC" == "$NEW_MAC" ]]; then
-    log "❌ ERROR: MAC did not change (still $NEW_MAC)"
+  # Ensure the first octet is even (unicast) and locally administered
+  FIRST_OCTET=$(printf '%02x' $(( (0x${NEW_MAC:0:2} & 0xFE) | 0x02 )))
+  NEW_MAC="${FIRST_OCTET}${NEW_MAC:2}"
+  
+  log "Attempting to set MAC to: $NEW_MAC"
+  
+  # Try to set the new MAC address
+  if sudo ifconfig "$INTERFACE" ether "$NEW_MAC" 2>/dev/null; then
+    log "MAC address set successfully"
+  else
+    log "❌ ERROR: Failed to set MAC address using ifconfig"
+    enable_wifi
+    return 1
+  fi
+  
+  enable_wifi
+  
+  ACTUAL_MAC=$(get_mac) 
+  if [[ -z "$ACTUAL_MAC" ]]; then
+    log "❌ ERROR: Could not detect MAC address after spoofing"
+    return 1
+  elif [[ "$ORIGINAL_MAC" == "$ACTUAL_MAC" ]]; then
+    log "❌ ERROR: MAC did not change (still $ACTUAL_MAC)"
     return 1
   else
-    log "✅ MAC spoofed successfully: $ORIGINAL_MAC → $NEW_MAC"
+    log "✅ MAC spoofed successfully: $ORIGINAL_MAC → $ACTUAL_MAC"
     return 0
   fi
 }
@@ -161,17 +256,21 @@ get_ip_info() {
   return 1
 }
 
-# Verify VPN connection is established
+# Enhanced VPN verification for macOS
 verify_vpn_connection() {
-  local max_wait=60  # Maximum wait time in seconds
+  local max_wait=60
   local wait_time=0
   
   log "Verifying VPN connection..."
   
   while [[ $wait_time -lt $max_wait ]]; do
-    if ip route | grep -q "utun0\|tun0"; then
-      log "✅ VPN interface detected"
-      return 0
+    # Check for VPN interface
+    if ifconfig | grep -q "utun\|tun"; then
+      # Also check that traffic is actually routing through VPN
+      if route -n get default 2>/dev/null | grep -q "interface.*utun\|interface.*tun"; then
+        log "✅ VPN interface and routing detected"
+        return 0
+      fi
     fi
     sleep 5
     ((wait_time += 5))
@@ -194,10 +293,13 @@ if ! check_network; then
   exit 1
 fi
 
-# Temporarily disable error exit for MAC spoofing
+# Try native MAC spoofing first, fall back if it fails
 set +e
-if ! spoof_mac; then
-  log "⚠️ WARNING: MAC spoofing failed, continuing anyway..."
+log "Attempting native MAC spoofing..."
+if ! spoof_mac_native; then
+  log "⚠️ WARNING: Native MAC spoofing failed"
+  log "💡 TIP: MAC spoofing often requires a reboot to work properly on modern macOS"
+  log "⚠️ Continuing without MAC spoofing..."
 fi
 set -e
 
@@ -215,12 +317,15 @@ ORIGINAL_LOC=$(echo "$IP_INFO" | jq -r '"\(.city // "unknown"), \(.country // "u
 log "INFO: Original IP: $ORIGINAL_IP"
 log "You are leaving $ORIGINAL_LOC"
 
+SCRIPT_STATE="killing_existing_vpn"
+
 log "INFO: Killing current OpenVPN session..."
 sudo killall openvpn 2>/dev/null && log "INFO: OpenVPN killed." || log "INFO: No OpenVPN process found."
 
 # Wait for processes to fully terminate
 sleep 3
 
+SCRIPT_STATE="selecting_vpn_config"
 log "INFO: Selecting new VPN config..."
 
 LAST_USED_OVPN=""
@@ -262,11 +367,18 @@ fi
 log "INFO: Selected VPN config: $(basename "$SELECTED_OVPN")"
 log "INFO: Starting OpenVPN connection..."
 
-# Start OpenVPN with better error handling
-if ! sudo openvpn --config "$SELECTED_OVPN" --auth-user-pass "$CREDENTIALS_FILE" --daemon; then
+# Start OpenVPN with better error handling and routing
+if ! sudo openvpn --config "$SELECTED_OVPN" --auth-user-pass "$CREDENTIALS_FILE" --daemon --route-noexec; then
   log "❌ ERROR: Failed to start OpenVPN"
   exit 1
 fi
+
+VPN_WAS_STARTED=true
+SCRIPT_STATE="verifying_vpn"
+
+# Wait a bit longer for VPN to establish
+log "Waiting 15 seconds for VPN to establish..."
+sleep 15
 
 # Verify VPN connection is established
 if ! verify_vpn_connection; then
@@ -274,6 +386,27 @@ if ! verify_vpn_connection; then
   sudo killall openvpn 2>/dev/null
   exit 1
 fi
+
+# Add default route through VPN
+log "Setting up routing through VPN..."
+VPN_INTERFACE=$(ifconfig | grep -E "^(utun|tun)" | cut -d: -f1 | head -1)
+if [[ -n "$VPN_INTERFACE" ]]; then
+  log "Found VPN interface: $VPN_INTERFACE"
+  # Remove existing default route and add through VPN
+  sudo route delete default &>/dev/null || true
+  VPN_GATEWAY=$(route -n get default 2>/dev/null | grep gateway | awk '{print $2}' | head -1)
+  if [[ -n "$VPN_GATEWAY" ]]; then
+    sudo route add default "$VPN_GATEWAY" &>/dev/null || log "Could not set VPN as default route"
+  fi
+else
+  log "⚠️ WARNING: Could not find VPN interface"
+fi
+
+SCRIPT_STATE="checking_new_ip"
+
+# Wait for routing to take effect
+log "Waiting 10 seconds for routing to stabilize..."
+sleep 10
 
 # Get new IP information
 log "Checking new IP address..."
@@ -289,14 +422,34 @@ NEW_LOC=$(echo "$NEW_IP_INFO" | jq -r '"\(.city // "unknown"), \(.country // "un
 if [[ "$NEW_IP" == "$ORIGINAL_IP" ]] || [[ "$NEW_IP" == "unknown" ]]; then
   log "⚠️ WARNING: IP did not change or is unknown. VPN might have failed."
   log "Original IP: $ORIGINAL_IP, New IP: $NEW_IP"
+  log "This could be due to:"
+  log "  - VPN server connectivity issues"
+  log "  - Routing not properly configured"
+  log "  - DNS leaks"
+  log "Let's check VPN status..."
+  ifconfig | grep -A5 -B5 "utun\|tun" || log "No VPN interfaces found"
   sudo killall openvpn 2>/dev/null
   exit 1
 else
+  SCRIPT_STATE="enabling_firewall"
   enable_pf
+  SCRIPT_STATE="completed"
   log "✅ VPN connection successful!"
   log "INFO: IP changed: $ORIGINAL_IP → $NEW_IP"
   log "Welcome to $NEW_LOC!"
-  log "Your pf status is: $(sudo pfctl -s info)"
   echo "$SELECTED_OVPN" > "$LAST_USED_FILE"
   log "🎉 Script completed successfully!"
+  log ""
+  log "💡 To cancel and restore everything to normal, press Ctrl+C"
+  
+  # Keep the script running so user can cancel
+  log "VPN is active. Press Ctrl+C to disconnect and cleanup."
+  while true; do
+    sleep 30
+    # Optionally check if VPN is still connected
+    if ! pgrep openvpn >/dev/null; then
+      log "⚠️ OpenVPN process died unexpectedly"
+      break
+    fi
+  done
 fi

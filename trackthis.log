@@ -1809,3 +1809,221 @@ Counters
   synproxy                               0            0.0/s
   dummynet                               0            0.0/s
   invalid-port                           0            0.0/s
+[Tue Aug  5 10:56:56 CDT 2025] 🚀 Starting VPN rotation script
+[Tue Aug  5 10:56:56 CDT 2025] ✅ All dependencies check passed
+[Tue Aug  5 10:56:56 CDT 2025] INFO: Mac spoofing started
+[Tue Aug  5 10:56:56 CDT 2025] Disabling Wi-Fi on en0...
+[Tue Aug  5 10:56:56 CDT 2025] Waiting 5 seconds for WiFi to disable
+[Tue Aug  5 10:57:01 CDT 2025] Original MAC: 8a:dc:1e:25:9d:79
+[Tue Aug  5 10:57:01 CDT 2025] ❌ ERROR: MAC spoofing command failed: /bin/sh: /System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport: No such file or directory
+Error: Unable to disassociate from wifi networks
+[Tue Aug  5 10:57:01 CDT 2025] Enabling Wi-Fi on en0...
+[Tue Aug  5 10:57:02 CDT 2025] Waiting 5 seconds for WiFi to enable
+[Tue Aug  5 10:57:07 CDT 2025] ⚠️ WARNING: MAC spoofing failed, continuing anyway...
+[Tue Aug  5 10:57:07 CDT 2025] Waiting 15 seconds for network to stabilize
+[Tue Aug  5 10:57:22 CDT 2025] INFO: Original IP: 68.110.31.60
+[Tue Aug  5 10:57:22 CDT 2025] You are leaving Omaha, United States
+[Tue Aug  5 10:57:22 CDT 2025] INFO: Killing current OpenVPN session...
+[Tue Aug  5 10:57:30 CDT 2025] INFO: No OpenVPN process found.
+[Tue Aug  5 10:57:33 CDT 2025] INFO: Selecting new VPN config...
+[Tue Aug  5 10:57:33 CDT 2025] INFO: Selected VPN config: ch361.nordvpn.com.tcp.ovpn
+[Tue Aug  5 10:57:33 CDT 2025] INFO: Starting OpenVPN connection...
+[Tue Aug  5 10:57:33 CDT 2025] Verifying VPN connection...
+[Tue Aug  5 10:57:38 CDT 2025] Waiting for VPN connection... (5s/60s)
+[Tue Aug  5 10:57:43 CDT 2025] Waiting for VPN connection... (10s/60s)
+[Tue Aug  5 10:57:48 CDT 2025] Waiting for VPN connection... (15s/60s)
+[Tue Aug  5 10:57:53 CDT 2025] Waiting for VPN connection... (20s/60s)
+[Tue Aug  5 10:57:54 CDT 2025] 🛑 Script interrupted by user - cleaning up...
+[Tue Aug  5 10:57:54 CDT 2025] 🧹 Starting cleanup process...
+[Tue Aug  5 10:57:54 CDT 2025] Killing OpenVPN processes...
+[Tue Aug  5 10:57:54 CDT 2025] OpenVPN killed
+[Tue Aug  5 10:57:54 CDT 2025] Attempting to restore original MAC address: 7a:54:a9:dd:f7:4c
+[Tue Aug  5 10:57:58 CDT 2025] ⚠️ Could not restore original MAC automatically
+[Tue Aug  5 10:58:03 CDT 2025] ⚠️ MAC restoration may have failed. You may need to restart your network interface or reboot.
+[Tue Aug  5 10:58:03 CDT 2025]    Original MAC was: 7a:54:a9:dd:f7:4c
+[Tue Aug  5 10:58:03 CDT 2025]    Current MAC is: 8a:dc:1e:25:9d:79
+[Tue Aug  5 10:58:03 CDT 2025] ✅ Cleanup completed - script was cancelled by user
+[Tue Aug  5 11:00:49 CDT 2025] 🚀 Starting VPN rotation script
+[Tue Aug  5 11:00:49 CDT 2025] ✅ All dependencies check passed
+[Tue Aug  5 11:00:49 CDT 2025] INFO: Mac spoofing started
+[Tue Aug  5 11:00:49 CDT 2025] Disabling Wi-Fi on en0...
+[Tue Aug  5 11:00:49 CDT 2025] Waiting 5 seconds for WiFi to disable
+[Tue Aug  5 11:00:54 CDT 2025] Original MAC: 8a:dc:1e:25:9d:79
+[Tue Aug  5 11:00:54 CDT 2025] ❌ ERROR: MAC spoofing command failed: /bin/sh: /System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport: No such file or directory
+Error: Unable to disassociate from wifi networks
+[Tue Aug  5 11:00:54 CDT 2025] Enabling Wi-Fi on en0...
+[Tue Aug  5 11:00:54 CDT 2025] Waiting 5 seconds for WiFi to enable
+[Tue Aug  5 11:00:59 CDT 2025] ⚠️ WARNING: MAC spoofing failed, continuing anyway...
+[Tue Aug  5 11:00:59 CDT 2025] Waiting 15 seconds for network to stabilize
+[Tue Aug  5 11:01:14 CDT 2025] INFO: Original IP: 68.110.31.60
+[Tue Aug  5 11:01:14 CDT 2025] You are leaving Omaha, United States
+[Tue Aug  5 11:01:14 CDT 2025] INFO: Killing current OpenVPN session...
+[Tue Aug  5 11:01:19 CDT 2025] INFO: No OpenVPN process found.
+[Tue Aug  5 11:01:22 CDT 2025] INFO: Selecting new VPN config...
+[Tue Aug  5 11:01:22 CDT 2025] INFO: Selected VPN config: pa1.nordvpn.com.tcp.ovpn
+[Tue Aug  5 11:01:22 CDT 2025] INFO: Starting OpenVPN connection...
+[Tue Aug  5 11:01:22 CDT 2025] Verifying VPN connection...
+[Tue Aug  5 11:01:27 CDT 2025] Waiting for VPN connection... (5s/60s)
+[Tue Aug  5 11:01:31 CDT 2025] 🛑 Script interrupted by user - cleaning up...
+[Tue Aug  5 11:01:31 CDT 2025] 🧹 Starting cleanup process...
+[Tue Aug  5 11:01:31 CDT 2025] Killing OpenVPN processes...
+[Tue Aug  5 11:01:31 CDT 2025] OpenVPN killed
+[Tue Aug  5 11:01:31 CDT 2025] Attempting to restore original MAC address: 7a:54:a9:dd:f7:4c
+[Tue Aug  5 11:01:34 CDT 2025] ⚠️ Could not restore original MAC automatically
+[Tue Aug  5 11:01:40 CDT 2025] ⚠️ MAC restoration may have failed. You may need to restart your network interface or reboot.
+[Tue Aug  5 11:01:40 CDT 2025]    Original MAC was: 7a:54:a9:dd:f7:4c
+[Tue Aug  5 11:01:40 CDT 2025]    Current MAC is: 8a:dc:1e:25:9d:79
+[Tue Aug  5 11:01:40 CDT 2025] ✅ Cleanup completed - script was cancelled by user
+[Tue Aug  5 11:02:59 CDT 2025] 🚀 Starting VPN rotation script
+[Tue Aug  5 11:02:59 CDT 2025] ✅ All dependencies check passed
+[Tue Aug  5 11:02:59 CDT 2025] INFO: Mac spoofing started
+[Tue Aug  5 11:02:59 CDT 2025] Disabling Wi-Fi on en0...
+[Tue Aug  5 11:03:00 CDT 2025] Waiting 5 seconds for WiFi to disable
+[Tue Aug  5 11:03:05 CDT 2025] Original MAC: 8a:dc:1e:25:9d:79
+[Tue Aug  5 11:03:05 CDT 2025] ❌ ERROR: MAC spoofing command failed: /bin/sh: /System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport: No such file or directory
+Error: Unable to disassociate from wifi networks
+[Tue Aug  5 11:03:05 CDT 2025] This might be due to macOS version compatibility issues
+[Tue Aug  5 11:03:05 CDT 2025] Enabling Wi-Fi on en0...
+[Tue Aug  5 11:03:05 CDT 2025] Waiting 5 seconds for WiFi to enable
+[Tue Aug  5 11:03:10 CDT 2025] ⚠️ WARNING: MAC spoofing failed, continuing anyway...
+[Tue Aug  5 11:03:10 CDT 2025] Waiting 15 seconds for network to stabilize
+[Tue Aug  5 11:03:25 CDT 2025] INFO: Original IP: 68.110.31.60
+[Tue Aug  5 11:03:25 CDT 2025] You are leaving Omaha, United States
+[Tue Aug  5 11:03:25 CDT 2025] INFO: Killing current OpenVPN session...
+[Tue Aug  5 11:03:25 CDT 2025] INFO: No OpenVPN process found.
+[Tue Aug  5 11:03:28 CDT 2025] INFO: Selecting new VPN config...
+[Tue Aug  5 11:03:28 CDT 2025] INFO: Selected VPN config: pa2.nordvpn.com.tcp.ovpn
+[Tue Aug  5 11:03:28 CDT 2025] INFO: Starting OpenVPN connection...
+[Tue Aug  5 11:03:28 CDT 2025] Verifying VPN connection...
+[Tue Aug  5 11:03:28 CDT 2025] ✅ VPN interface detected
+[Tue Aug  5 11:03:28 CDT 2025] Checking new IP address...
+[Tue Aug  5 11:03:28 CDT 2025] ⚠️ WARNING: IP did not change or is unknown. VPN might have failed.
+[Tue Aug  5 11:03:28 CDT 2025] Original IP: 68.110.31.60, New IP: 68.110.31.60
+[Tue Aug  5 11:05:40 CDT 2025] 🚀 Starting VPN rotation script
+[Tue Aug  5 11:05:40 CDT 2025] ✅ All dependencies check passed
+[Tue Aug  5 11:05:40 CDT 2025] Attempting native MAC spoofing...
+[Tue Aug  5 11:05:40 CDT 2025] INFO: Native Mac spoofing started
+[Tue Aug  5 11:05:40 CDT 2025] Disabling Wi-Fi on en0...
+[Tue Aug  5 11:05:40 CDT 2025] Waiting 5 seconds for WiFi to disable
+[Tue Aug  5 11:05:45 CDT 2025] Original MAC: 8a:dc:1e:25:9d:79
+[Tue Aug  5 11:05:45 CDT 2025] Attempting to set MAC to: a2:66:38:af:54:cb
+[Tue Aug  5 11:05:45 CDT 2025] ❌ ERROR: Failed to set MAC address using ifconfig
+[Tue Aug  5 11:05:45 CDT 2025] Enabling Wi-Fi on en0...
+[Tue Aug  5 11:05:45 CDT 2025] Waiting 5 seconds for WiFi to enable
+[Tue Aug  5 11:05:50 CDT 2025] ⚠️ WARNING: Native MAC spoofing failed
+[Tue Aug  5 11:05:50 CDT 2025] 💡 TIP: MAC spoofing often requires a reboot to work properly on modern macOS
+[Tue Aug  5 11:05:50 CDT 2025] ⚠️ Continuing without MAC spoofing...
+[Tue Aug  5 11:05:50 CDT 2025] Waiting 15 seconds for network to stabilize
+[Tue Aug  5 11:06:05 CDT 2025] INFO: Original IP: 68.110.31.60
+[Tue Aug  5 11:06:05 CDT 2025] You are leaving Omaha, United States
+[Tue Aug  5 11:06:05 CDT 2025] INFO: Killing current OpenVPN session...
+[Tue Aug  5 11:06:05 CDT 2025] INFO: No OpenVPN process found.
+[Tue Aug  5 11:06:08 CDT 2025] INFO: Selecting new VPN config...
+[Tue Aug  5 11:06:08 CDT 2025] INFO: Selected VPN config: es207.nordvpn.com.tcp.ovpn
+[Tue Aug  5 11:06:08 CDT 2025] INFO: Starting OpenVPN connection...
+[Tue Aug  5 11:06:08 CDT 2025] Waiting 15 seconds for VPN to establish...
+[Tue Aug  5 11:06:23 CDT 2025] Verifying VPN connection...
+[Tue Aug  5 11:06:28 CDT 2025] Waiting for VPN connection... (5s/60s)
+[Tue Aug  5 11:06:33 CDT 2025] Waiting for VPN connection... (10s/60s)
+[Tue Aug  5 11:06:39 CDT 2025] Waiting for VPN connection... (15s/60s)
+[Tue Aug  5 11:06:44 CDT 2025] Waiting for VPN connection... (20s/60s)
+[Tue Aug  5 11:06:49 CDT 2025] Waiting for VPN connection... (25s/60s)
+[Tue Aug  5 11:06:54 CDT 2025] Waiting for VPN connection... (30s/60s)
+[Tue Aug  5 11:06:59 CDT 2025] Waiting for VPN connection... (35s/60s)
+[Tue Aug  5 11:07:04 CDT 2025] Waiting for VPN connection... (40s/60s)
+[Tue Aug  5 11:07:09 CDT 2025] Waiting for VPN connection... (45s/60s)
+[Tue Aug  5 11:07:14 CDT 2025] Waiting for VPN connection... (50s/60s)
+[Tue Aug  5 11:07:19 CDT 2025] Waiting for VPN connection... (55s/60s)
+[Tue Aug  5 11:07:24 CDT 2025] Waiting for VPN connection... (60s/60s)
+[Tue Aug  5 11:07:24 CDT 2025] ❌ ERROR: VPN connection not established within 60 seconds
+[Tue Aug  5 11:07:24 CDT 2025] ❌ ERROR: VPN connection verification failed
+[Tue Aug  5 11:12:50 CDT 2025] 🚀 Starting VPN rotation script
+[Tue Aug  5 11:12:50 CDT 2025] ✅ All dependencies check passed
+[Tue Aug  5 11:12:51 CDT 2025] Attempting native MAC spoofing...
+[Tue Aug  5 11:12:51 CDT 2025] INFO: Native Mac spoofing started
+[Tue Aug  5 11:12:51 CDT 2025] Disabling Wi-Fi on en0...
+[Tue Aug  5 11:12:51 CDT 2025] Waiting 5 seconds for WiFi to disable
+[Tue Aug  5 11:12:56 CDT 2025] Original MAC: 8a:dc:1e:25:9d:79
+[Tue Aug  5 11:12:56 CDT 2025] Attempting to set MAC to: 1e:d0:e6:cb:d7:8e
+[Tue Aug  5 11:12:56 CDT 2025] ❌ ERROR: Failed to set MAC address using ifconfig
+[Tue Aug  5 11:12:56 CDT 2025] Enabling Wi-Fi on en0...
+[Tue Aug  5 11:12:56 CDT 2025] Waiting 5 seconds for WiFi to enable
+[Tue Aug  5 11:13:01 CDT 2025] ⚠️ WARNING: Native MAC spoofing failed
+[Tue Aug  5 11:13:01 CDT 2025] 💡 TIP: MAC spoofing often requires a reboot to work properly on modern macOS
+[Tue Aug  5 11:13:01 CDT 2025] ⚠️ Continuing without MAC spoofing...
+[Tue Aug  5 11:13:01 CDT 2025] Waiting 15 seconds for network to stabilize
+[Tue Aug  5 11:13:16 CDT 2025] INFO: Original IP: 68.110.31.60
+[Tue Aug  5 11:13:16 CDT 2025] You are leaving Omaha, United States
+[Tue Aug  5 11:13:16 CDT 2025] INFO: Killing current OpenVPN session...
+[Tue Aug  5 11:13:16 CDT 2025] INFO: No OpenVPN process found.
+[Tue Aug  5 11:13:19 CDT 2025] INFO: Selecting new VPN config...
+[Tue Aug  5 11:13:19 CDT 2025] INFO: Selected VPN config: is76.nordvpn.com.tcp.ovpn
+[Tue Aug  5 11:13:19 CDT 2025] INFO: Starting OpenVPN connection...
+[Tue Aug  5 11:13:19 CDT 2025] Waiting 15 seconds for VPN to establish...
+[Tue Aug  5 11:13:34 CDT 2025] Verifying VPN connection...
+[Tue Aug  5 11:13:39 CDT 2025] Waiting for VPN connection... (5s/60s)
+[Tue Aug  5 11:13:44 CDT 2025] Waiting for VPN connection... (10s/60s)
+[Tue Aug  5 11:13:47 CDT 2025] 🛑 Script interrupted by user - cleaning up...
+[Tue Aug  5 11:13:47 CDT 2025] 🧹 Starting cleanup process...
+[Tue Aug  5 11:13:47 CDT 2025] Killing OpenVPN processes...
+[Tue Aug  5 11:13:47 CDT 2025] OpenVPN killed
+[Tue Aug  5 11:13:47 CDT 2025] Attempting to restore original MAC address: 7a:54:a9:dd:f7:4c
+[Tue Aug  5 11:13:50 CDT 2025] ⚠️ Could not restore original MAC automatically
+[Tue Aug  5 11:13:55 CDT 2025] ⚠️ MAC restoration may have failed. You may need to restart your network interface or reboot.
+[Tue Aug  5 11:13:55 CDT 2025]    Original MAC was: 7a:54:a9:dd:f7:4c
+[Tue Aug  5 11:13:55 CDT 2025]    Current MAC is: 8a:dc:1e:25:9d:79
+[Tue Aug  5 11:13:55 CDT 2025] ✅ Cleanup completed - script was cancelled by user
+[Tue Aug  5 11:13:57 CDT 2025] 🚀 Starting VPN rotation script
+[Tue Aug  5 11:13:57 CDT 2025] ✅ All dependencies check passed
+[Tue Aug  5 11:13:58 CDT 2025] Attempting native MAC spoofing...
+[Tue Aug  5 11:13:58 CDT 2025] INFO: Native Mac spoofing started
+[Tue Aug  5 11:13:58 CDT 2025] Disabling Wi-Fi on en0...
+[Tue Aug  5 11:13:58 CDT 2025] Waiting 30 seconds for WiFi to disable
+[Tue Aug  5 11:14:28 CDT 2025] Original MAC: 8a:dc:1e:25:9d:79
+[Tue Aug  5 11:14:28 CDT 2025] Attempting to set MAC to: ea:ab:e4:21:a1:55
+[Tue Aug  5 11:14:28 CDT 2025] ❌ ERROR: Failed to set MAC address using ifconfig
+[Tue Aug  5 11:14:28 CDT 2025] Enabling Wi-Fi on en0...
+[Tue Aug  5 11:14:28 CDT 2025] Waiting 30 seconds for WiFi to enable
+[Tue Aug  5 11:14:58 CDT 2025] ⚠️ WARNING: Native MAC spoofing failed
+[Tue Aug  5 11:14:58 CDT 2025] 💡 TIP: MAC spoofing often requires a reboot to work properly on modern macOS
+[Tue Aug  5 11:14:58 CDT 2025] ⚠️ Continuing without MAC spoofing...
+[Tue Aug  5 11:14:58 CDT 2025] Waiting 15 seconds for network to stabilize
+[Tue Aug  5 11:15:13 CDT 2025] INFO: Original IP: 68.110.31.60
+[Tue Aug  5 11:15:13 CDT 2025] You are leaving Omaha, United States
+[Tue Aug  5 11:15:13 CDT 2025] INFO: Killing current OpenVPN session...
+[Tue Aug  5 11:15:13 CDT 2025] INFO: No OpenVPN process found.
+[Tue Aug  5 11:15:16 CDT 2025] INFO: Selecting new VPN config...
+[Tue Aug  5 11:15:16 CDT 2025] INFO: Selected VPN config: se497.nordvpn.com.tcp.ovpn
+[Tue Aug  5 11:15:16 CDT 2025] INFO: Starting OpenVPN connection...
+[Tue Aug  5 11:15:16 CDT 2025] Waiting 15 seconds for VPN to establish...
+[Tue Aug  5 11:15:31 CDT 2025] Verifying VPN connection...
+[Tue Aug  5 11:15:36 CDT 2025] Waiting for VPN connection... (5s/60s)
+[Tue Aug  5 11:15:41 CDT 2025] Waiting for VPN connection... (10s/60s)
+[Tue Aug  5 11:15:46 CDT 2025] Waiting for VPN connection... (15s/60s)
+[Tue Aug  5 11:15:51 CDT 2025] Waiting for VPN connection... (20s/60s)
+[Tue Aug  5 11:15:56 CDT 2025] Waiting for VPN connection... (25s/60s)
+[Tue Aug  5 11:16:01 CDT 2025] Waiting for VPN connection... (30s/60s)
+[Tue Aug  5 11:16:04 CDT 2025] 🛑 Script interrupted by user - cleaning up...
+[Tue Aug  5 11:16:04 CDT 2025] 🧹 Starting cleanup process...
+[Tue Aug  5 11:16:04 CDT 2025] Killing OpenVPN processes...
+[Tue Aug  5 11:16:04 CDT 2025] OpenVPN killed
+[Tue Aug  5 11:16:04 CDT 2025] Attempting to restore original MAC address: 7a:54:a9:dd:f7:4c
+[Tue Aug  5 11:16:07 CDT 2025] ⚠️ Could not restore original MAC automatically
+[Tue Aug  5 11:16:13 CDT 2025] ⚠️ MAC restoration may have failed. You may need to restart your network interface or reboot.
+[Tue Aug  5 11:16:13 CDT 2025]    Original MAC was: 7a:54:a9:dd:f7:4c
+[Tue Aug  5 11:16:13 CDT 2025]    Current MAC is: 8a:dc:1e:25:9d:79
+[Tue Aug  5 11:16:13 CDT 2025] ✅ Cleanup completed - script was cancelled by user
+[Tue Aug  5 11:16:22 CDT 2025] 🚀 Starting VPN rotation script
+[Tue Aug  5 11:16:22 CDT 2025] ✅ All dependencies check passed
+[Tue Aug  5 11:16:22 CDT 2025] Attempting native MAC spoofing...
+[Tue Aug  5 11:16:22 CDT 2025] INFO: Native Mac spoofing started
+[Tue Aug  5 11:16:22 CDT 2025] Disabling Wi-Fi on en0...
+[Tue Aug  5 11:16:22 CDT 2025] Waiting 30 seconds for WiFi to disable
+[Tue Aug  5 11:16:52 CDT 2025] Original MAC: 8a:dc:1e:25:9d:79
+[Tue Aug  5 11:16:52 CDT 2025] Attempting to set MAC to: fa:0b:74:cb:02:b1
+[Tue Aug  5 11:16:52 CDT 2025] ❌ ERROR: Failed to set MAC address using ifconfig
+[Tue Aug  5 11:16:52 CDT 2025] Enabling Wi-Fi on en0...
+[Tue Aug  5 11:16:52 CDT 2025] Waiting 30 seconds for WiFi to enable
+[Tue Aug  5 11:16:59 CDT 2025] 🛑 Script interrupted by user - cleaning up...
+[Tue Aug  5 11:16:59 CDT 2025] 🧹 Starting cleanup process...
+[Tue Aug  5 11:16:59 CDT 2025] ✅ Cleanup completed - script was cancelled by user
